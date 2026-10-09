@@ -71,19 +71,24 @@ npm run build
 ## 🤖 Vuetify MCP Server
 
 This project is configured with the Vuetify Model Context Protocol (MCP) server.
-To install and configure the MCP server for your favorite IDE (Cursor, Trae, Windsurf, VS Code, Claude Desktop, etc.) run:
+To install and configure the MCP server for your favorite IDE (Cursor, Trae,
+Windsurf, VS Code, Claude Desktop, etc.) run:
 
 ```bash
 npx -y @vuetify/mcp-cli
 ```
 
-This will open an interactive setup wizard to help you connect your AI assistant to the Vuetify ecosystem.
+This will open an interactive setup wizard to help you connect your AI assistant
+to the Vuetify ecosystem.
 
 ## 💪 Support Vuetify Development
 
-This project uses Vuetify - an MIT licensed Open Source project. We are glad to welcome contributors and any support for ongoing development:
+This project uses Vuetify - an MIT licensed Open Source project. We are glad to
+welcome contributors and any support for ongoing development:
 
 - Contribute to Vuetify and ecosystem projects: https://github.com/vuetifyjs
 - Request enterprise support: https://support.vuetifyjs.com/
 - Sponsor on GitHub: https://github.com/sponsors/vuetifyjs
 - Support on Open Collective: https://opencollective.com/vuetify
+
+# marvin-delavega.github.io
