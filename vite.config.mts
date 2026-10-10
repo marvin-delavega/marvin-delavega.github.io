@@ -29,6 +29,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: process.env.NODE_ENV === 'production' ? '/marvin-delavega.github.io/' : '/',
   define: { 'process.env': {} },
   resolve: {
     alias: {
