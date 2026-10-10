@@ -35,7 +35,7 @@
                 variant="outlined" 
                 color="primary" 
                 prepend-icon="mdi-download" 
-                href="/src/assets/Marvin de la Vega - Resume v3.pdf"
+                href="../public/Marvin de la Vega - Resume v4.pdf"
                 target="_blank"
                 download>Download resume</v-btn>
               <v-btn 
