@@ -85,7 +85,7 @@
           <v-container max-width="800px" class="mt-12">
             <v-row density="default" class="d-flex justify-center">
               <v-card v-for="skill in skills" color="transparent" elevation="0">
-                <v-img :src="'/src/assets/' + skill + '.svg'" height="50"></v-img>
+                <v-img :src="getSvgUrl(skill)" height="50"></v-img>
                 <v-card-subtitle>{{ skill }}</v-card-subtitle>
               </v-card>
             </v-row>
@@ -119,7 +119,7 @@
                   <v-img 
                     v-for="stack in project.stack" 
                     :key="stack"
-                    :src="'/src/assets/' + stack + '.svg'" 
+                    :src="getSvgUrl(stack)" 
                     height="20" 
                     width="20"
                     class="stack-icon flex-grow-0 me-2"
@@ -144,7 +144,7 @@
                   variant="outlined" 
                   target="_blank">
                     <template v-slot:prepend>
-                      <v-img :src="`/src/assets/${project.liveHost}.svg`" width="16px"></v-img>
+                      <v-img :src="getSvgUrl(project.liveHost)" width="16px"></v-img>
                     </template>
                     {{ project.liveHost }}
                 </v-btn>
@@ -186,11 +186,18 @@ const scrollTo = (target: string | number) => {
   goTo(target, {duration: 300, easing: 'easeInOutCubic', offset: -128})
 }
 
+const svgModules = import.meta.glob('/src/assets/*.svg', { eager: true, as: 'url' });
+
+const getSvgUrl = (name: string) => {
+  const path = `/src/assets/${name}.svg`;
+  return svgModules[path] || '';
+};
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
 
   skills.value = [
-    'Csharp', '.NET Core', '.NET', 'TypeScript', 'Python',
+    'Csharp', 'dotnet core', 'dotnet', 'TypeScript', 'Python',
     'FastAPI', 'JavaScript', 'Vue.js', 'Vite.js',
     'Vuetify', 'Tailwind CSS', 'MySQL', 'PostgresSQL',
     'Supabase', 'Redis', 'SQLite', 'Docker', 'Git'
