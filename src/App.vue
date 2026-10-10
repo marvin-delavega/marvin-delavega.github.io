@@ -8,13 +8,11 @@
       scroll-threshold="50" 
       :class="isScrolled ? 'dark-gradient' : ''">
       <v-container class="d-flex justify-center align-center" height="100%">
-        <v-btn variant="text">Profile</v-btn>
+        <v-btn variant="text" @click="scrollTo(0)">Profile</v-btn>
         <v-divider vertical thickness="2px" length="8px" class="align-self-center"></v-divider>
-        <v-btn variant="text">Skills</v-btn>
+        <v-btn variant="text" @click="scrollTo('.skills')">Skills</v-btn>
         <v-divider vertical thickness="2px" length="8px" class="align-self-center"></v-divider>
-        <v-btn variant="text">Portfolio</v-btn>
-        <v-divider vertical thickness="2px" length="8px" class="align-self-center"></v-divider>
-        <v-btn variant="text">Contacts</v-btn>
+        <v-btn variant="text" @click="scrollTo('.portfolio')">Portfolio</v-btn>
       </v-container>
     </v-app-bar>
     <v-main>
@@ -23,7 +21,7 @@
           color="transparent" 
           max-width="800px" 
           elevation="0"
-          class="mt-16">
+          class="mt-16 profile">
           <v-card-item class="flex-grow">
             <template v-slot:prepend>
               <v-img src="/src/assets/pfp.png" height="200px" width="200px" rounded="50%"></v-img>
@@ -31,11 +29,47 @@
             <v-card-item>
               <v-card-title class="text-headline-large">Hi! I'm Marvin de la Vega</v-card-title>
               <v-card-subtitle>A software engineer who loves to build ideas that solve real world problems</v-card-subtitle>
+            </v-card-item>
+            <v-card-item>
               <v-btn 
                 variant="outlined" 
                 color="primary" 
-                append-icon="mdi-download" 
-                class="mt-6">Download resume</v-btn>
+                prepend-icon="mdi-download" 
+                href="/src/assets/Marvin de la Vega - Resume v3.pdf"
+                target="_blank"
+                download>Download resume</v-btn>
+              <v-btn 
+                variant="outlined"
+                prepend-icon="mdi-github" 
+                href="https://github.com/marvin-delavega"
+                target="_blank"
+                download
+                class="ml-2">
+                Github
+              </v-btn>
+              <v-btn 
+                variant="outlined" 
+                color="yellow" 
+                prepend-icon="mdi-coffee" 
+                href="https://buymeacoffee.com/marvinducedelavega"
+                target="_blank"
+                download
+                class="ml-2">Buy me coffee</v-btn>
+            </v-card-item>
+            <v-card-item>
+              <v-btn 
+                prepend-icon="mdi-phone"
+                variant="text">+639945560115</v-btn>
+              <v-btn 
+                prepend-icon="mdi-facebook"
+                href="https://www.facebook.com/marvin.delavega.10"
+                target="_blank"
+                variant="text">facebook</v-btn>
+              <v-btn 
+                prepend-icon="mdi-linkedin"
+                href="https://www.linkedin.com/in/mducedv/"
+                target="_blank"
+                variant="text">linkedin</v-btn>
             </v-card-item>
           </v-card-item>
         </v-card>
@@ -45,90 +79,14 @@
           max-width="1000px" 
           elevation="0"
           class="mt-16">
-          <v-card-title class="text-title-medium text-center">
+          <v-card-title class="text-title-medium text-center skills">
             Skills & Tech Stack
           </v-card-title>
           <v-container max-width="800px" class="mt-12">
-            <v-row density="compact">
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Csharp.svg" height="50"></v-img>
-                <v-card-subtitle>C#</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/NET core.svg" height="50"></v-img>
-                <v-card-subtitle>.NET Core</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/NET.svg" height="50"></v-img>
-                <v-card-subtitle>.NET</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/TypeScript.svg" height="50"></v-img>
-                <v-card-subtitle>TypeScript</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Python.svg" height="50"></v-img>
-                <v-card-subtitle>Python</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/FastAPI.svg" height="50"></v-img>
-                <v-card-subtitle>FastAPI</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Java.svg" height="50"></v-img>
-                <v-card-subtitle>Java</v-card-subtitle>
-              </v-card>
-            </v-row>
-            <v-row density="compact" class="mt-8">
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/JavaScript.svg" height="50"></v-img>
-                <v-card-subtitle>JavaScript</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Vue.js.svg" height="50"></v-img>
-                <v-card-subtitle>Vue.js</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Vite.js.svg" height="50"></v-img>
-                <v-card-subtitle>Vite.js</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Vuetify.svg" height="50"></v-img>
-                <v-card-subtitle>Vuetify</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Tailwind CSS.svg" height="50"></v-img>
-                <v-card-subtitle>Tailwind CSS</v-card-subtitle>
-              </v-card>
-            </v-row>
-            <v-row density="compact" class="mt-8">
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/MySQL.svg" height="50"></v-img>
-                <v-card-subtitle>MySQL</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/PostgresSQL.svg" height="50"></v-img>
-                <v-card-subtitle>PostgreSQL</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Supabase.svg" height="50"></v-img>
-                <v-card-subtitle>Supabase</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Redis.svg" height="50"></v-img>
-                <v-card-subtitle>Redis</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/SQLite.svg" height="50"></v-img>
-                <v-card-subtitle>SQLite</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Docker.svg" height="50"></v-img>
-                <v-card-subtitle>Docker</v-card-subtitle>
-              </v-card>
-              <v-card color="transparent" elevation="0"> 
-                <v-img src="/src/assets/Git.svg" height="50"></v-img>
-                <v-card-subtitle>Git</v-card-subtitle>
+            <v-row density="default" class="d-flex justify-center">
+              <v-card v-for="skill in skills" color="transparent" elevation="0">
+                <v-img :src="'/src/assets/' + skill + '.svg'" height="50"></v-img>
+                <v-card-subtitle>{{ skill }}</v-card-subtitle>
               </v-card>
             </v-row>
           </v-container>
@@ -138,9 +96,61 @@
           max-width="1000px" 
           elevation="0"
           class="mt-16">
-          <v-card-title class="text-title-medium text-center">
-            Portfolio
+          <v-card-title class="text-title-medium text-center portfolio">
+            Portfolio Projects
           </v-card-title>
+          <v-container class="mt-12 d-flex flex-col ga-6 flex-wrap justify-center">
+            <v-card 
+              v-for="project in portfolio" 
+              variant="tonal"
+              width="290px"
+              height="350px"
+              class="d-flex flex-column">
+              <v-card-item>
+                <v-card-title class="text-title-large font-weight-semibold">{{ project.name }}</v-card-title>
+                <v-card-subtitle>{{ project.kind }}</v-card-subtitle>
+              </v-card-item>
+              <v-card-subtitle>Role: {{ project.role }}</v-card-subtitle>
+              <v-card-text class="flex-grow-1 text-grey-lighten-2">
+                {{ project.desc }}
+              </v-card-text>
+              <v-card-item>
+                <div class="d-flex justify-start align-center">
+                  <v-img 
+                    v-for="stack in project.stack" 
+                    :key="stack"
+                    :src="'/src/assets/' + stack + '.svg'" 
+                    height="20" 
+                    width="20"
+                    class="stack-icon flex-grow-0 me-2"
+                    v-tooltip="stack"
+                  ></v-img>
+                </div>
+              </v-card-item>
+              <v-divider class="flex-shrink-0 flex-grow-1"></v-divider>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn 
+                  :href="project.github" 
+                  variant="outlined" 
+                  target="_blank" 
+                  prepend-icon="mdi-github"
+                  :disabled="project.github == ''"
+                  :text="(project.github == '' ? 'No' : '') + ' Source'">
+                </v-btn>
+                <v-btn 
+                  v-if="project.liveURL !== ''" 
+                  :href="project.liveURL" 
+                  variant="outlined" 
+                  target="_blank">
+                    <template v-slot:prepend>
+                      <v-img :src="`/src/assets/${project.liveHost}.svg`" width="16px"></v-img>
+                    </template>
+                    {{ project.liveHost }}
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-container>
         </v-card>
       </v-container>
     </v-main>
@@ -149,16 +159,105 @@
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-
+import { useGoTo } from 'vuetify';
 
 const isScrolled = ref(false)
+const skills = ref<string[]>()
+
+type Project = {
+  name: string
+  kind: string
+  desc: string
+  stack: string[]
+  role: string
+  github: string
+  liveURL: string
+  liveHost: string
+}
+
+const portfolio = ref<Project[]>()
 
 const onScroll = () => {
   isScrolled.value = window.scrollY > 0
 }
 
+const goTo = useGoTo()
+const scrollTo = (target: string | number) => {
+  goTo(target, {duration: 300, easing: 'easeInOutCubic', offset: -128})
+}
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
+
+  skills.value = [
+    'Csharp', '.NET Core', '.NET', 'TypeScript', 'Python',
+    'FastAPI', 'JavaScript', 'Vue.js', 'Vite.js',
+    'Vuetify', 'Tailwind CSS', 'MySQL', 'PostgresSQL',
+    'Supabase', 'Redis', 'SQLite', 'Docker', 'Git'
+  ]
+
+  portfolio.value = [
+    {
+      name: 'SmartScraper',
+      kind: 'Personal Project',
+      desc: 'An autonomous job post web scraper using crawl4ai and ollama-hosted LLM to parse chunked markdown in a robust model call loop. It is then saved in supabase, and is viewable in a dashboard.',
+      stack: ['Vue.js', 'Vite.js', 'Vuetify', 'TypeScript', 'Python', 'FastAPI', 'Supabase', 'Docker', 'Ollama'],
+      github: 'https://github.com/marvin-delavega/smart-scraper',
+      liveURL: 'https://smart-scraper-ashy.vercel.app/',
+      liveHost: 'Vercel',
+      role: 'Solo Fullstack'
+    },
+    {
+      name: 'MsgMe',
+      kind: 'Personal Project',
+      desc: 'A simple stateless chat app that uses web sockets to recieve and maintain connections, and broadcast messages.',
+      stack: ['Vue.js', 'Vite.js', 'Vuetify', 'TypeScript', 'Python', 'FastAPI', 'Docker'],
+      github: 'https://github.com/marvin-delavega/msg-me',
+      liveURL: 'https://msg-me-sepia.vercel.app/',
+      liveHost: 'Vercel',
+      role: 'Solo Fullstack'
+    },
+    {
+      name: 'FraudDetection',
+      kind: 'Personal Project',
+      desc: 'A Card-Not-Present fraud detection pipeline with sync and async detection.',
+      stack: ['Python', 'FastAPI', 'Supabase', 'Docker'],
+      github: 'https://github.com/marvin-delavega/fraud-detection',
+      liveURL: '',
+      liveHost: '',
+      role: 'Solo Backend'
+    },
+    {
+      name: 'Operations Hub',
+      kind: 'Commissioned Project | Agentic',
+      desc: 'A warehousing and procurement network-local app that integrates to the client\'s existing ERP.',
+      stack: ['TypeScript', 'Node.js', 'MySQL', 'Docker'],
+      github: 'https://github.com/marvin-delavega/operations-hub',
+      liveURL: '',
+      liveHost: '',
+      role: 'Solo Fullstack'
+    },
+    {
+      name: 'Food & Beverage POS',
+      kind: 'Work Project | Team',
+      desc: 'A BIR accredited modern-look POS system with complete features you will need for a Food & Beverage business.',
+      stack: ['Delphi', 'MySQL', 'Docker'],
+      github: '',
+      liveURL: 'https://activesystems.ph/',
+      liveHost: 'Page',
+      role: 'Team Lead & Backend'
+    },
+    {
+      name: 'Work Management App',
+      kind: 'Work Project | Team',
+      desc: 'A complete HR and Payroll system',
+      stack: ['Csharp', '.NET Core', 'PostgresSQL', 'Docker'],
+      github: '',
+      liveURL: 'https://activesystems.ph/',
+      liveHost: 'Page',
+      role: 'Team Lead & Backend'
+    },
+  ]
 })
 
 onUnmounted(() => {
