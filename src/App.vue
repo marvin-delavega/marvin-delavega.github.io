@@ -186,7 +186,11 @@ const scrollTo = (target: string | number) => {
   goTo(target, {duration: 300, easing: 'easeInOutCubic', offset: -128})
 }
 
-const svgModules = import.meta.glob('/src/assets/*.svg', { eager: true, as: 'url' });
+const svgModules = import.meta.glob('/src/assets/*.svg', { 
+  query: '?url',
+  import: 'default',
+  eager: true,         
+});
 
 const getSvgUrl = (name: string) => {
   const path = `/src/assets/${name}.svg`;
@@ -197,7 +201,7 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll)
 
   skills.value = [
-    'Csharp', 'dotnet core', 'dotnet', 'TypeScript', 'Python',
+    'Csharp', 'DotNET Core', 'DotNET', 'TypeScript', 'Python',
     'FastAPI', 'JavaScript', 'Vue.js', 'Vite.js',
     'Vuetify', 'Tailwind CSS', 'MySQL', 'PostgresSQL',
     'Supabase', 'Redis', 'SQLite', 'Docker', 'Git'
