@@ -201,7 +201,7 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll)
 
   skills.value = [
-    'Csharp', 'DotNET Core', 'DotNET', 'TypeScript', 'Python',
+    'Csharp', 'Dot NET Core', 'Dot NET', 'TypeScript', 'Python',
     'FastAPI', 'JavaScript', 'Vue.js', 'Vite.js',
     'Vuetify', 'Tailwind CSS', 'MySQL', 'PostgresSQL',
     'Supabase', 'Redis', 'SQLite', 'Docker', 'Git'
