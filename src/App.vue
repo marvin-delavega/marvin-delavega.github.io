@@ -186,7 +186,11 @@ const scrollTo = (target: string | number) => {
   goTo(target, {duration: 300, easing: 'easeInOutCubic', offset: -128})
 }
 
-const svgModules = import.meta.glob('/src/assets/*.svg', { eager: true, as: 'url' });
+const svgModules = import.meta.glob('/src/assets/*.svg', { 
+  query: '?url',
+  import: 'default',
+  eager: true,         
+});
 
 const getSvgUrl = (name: string) => {
   const path = `/src/assets/${name}.svg`;
